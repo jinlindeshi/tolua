@@ -15,7 +15,6 @@ public class UnityEngine_MonoBehaviourWrap
 		L.RegFunction("StopCoroutine", StopCoroutine);
 		L.RegFunction("StopAllCoroutines", StopAllCoroutines);
 		L.RegFunction("print", print);
-		L.RegFunction("EnableScriptReloadInCheckConsistency", EnableScriptReloadInCheckConsistency);
 		L.RegFunction("__eq", op_Equality);
 		L.RegFunction("__tostring", ToLua.op_ToString);
 		L.RegVar("destroyCancellationToken", get_destroyCancellationToken, null);
@@ -230,22 +229,6 @@ public class UnityEngine_MonoBehaviourWrap
 			ToLua.CheckArgsCount(L, 1);
 			object arg0 = ToLua.ToVarObject(L, 1);
 			UnityEngine.MonoBehaviour.print(arg0);
-			return 0;
-		}
-		catch (Exception e)
-		{
-			return LuaDLL.toluaL_exception(L, e);
-		}
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int EnableScriptReloadInCheckConsistency(IntPtr L)
-	{
-		try
-		{
-			ToLua.CheckArgsCount(L, 1);
-			bool arg0 = LuaDLL.luaL_checkboolean(L, 1);
-			UnityEngine.MonoBehaviour.EnableScriptReloadInCheckConsistency(arg0);
 			return 0;
 		}
 		catch (Exception e)

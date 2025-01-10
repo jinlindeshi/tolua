@@ -19,7 +19,6 @@ public class UnityEngine_Texture2DWrap
 		L.RegFunction("GetPixels", GetPixels);
 		L.RegFunction("GetPixels32", GetPixels32);
 		L.RegFunction("PackTextures", PackTextures);
-		L.RegFunction("GenerateWebStreamingData", GenerateWebStreamingData);
 		L.RegFunction("GetLoadState", GetLoadState);
 		L.RegFunction("CreateExternalTexture", CreateExternalTexture);
 		L.RegFunction("SetPixel", SetPixel);
@@ -501,23 +500,6 @@ public class UnityEngine_Texture2DWrap
 			{
 				return LuaDLL.luaL_throw(L, "invalid arguments to method: UnityEngine.Texture2D.PackTextures");
 			}
-		}
-		catch (Exception e)
-		{
-			return LuaDLL.toluaL_exception(L, e);
-		}
-	}
-
-	[MonoPInvokeCallbackAttribute(typeof(LuaCSFunction))]
-	static int GenerateWebStreamingData(IntPtr L)
-	{
-		try
-		{
-			ToLua.CheckArgsCount(L, 1);
-			UnityEngine.Texture2D obj = (UnityEngine.Texture2D)ToLua.CheckObject(L, 1, typeof(UnityEngine.Texture2D));
-			bool o = obj.GenerateWebStreamingData();
-			LuaDLL.lua_pushboolean(L, o);
-			return 1;
 		}
 		catch (Exception e)
 		{
